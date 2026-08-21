@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python 设计模式修炼手册</title>
+<meta name="description" content="用 Python 讲解 24 个设计模式（23 个 GoF + 简单工厂），通俗有趣、代码全部实测可运行的静态学习网站">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- 顶部工具栏 -->
+<header class="topbar">
+  <div class="topbar-left">
+    <button id="btnMenu" class="icon-btn" title="目录" aria-label="打开目录">☰</button>
+    <a class="brand" href="#home">
+      <span class="brand-title">Python 设计模式修炼手册</span>
+      <span class="brand-sub">24 个模式 · 通俗有趣 · 代码全验证</span>
+    </a>
+  </div>
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input id="searchInput" type="text" placeholder="搜索全书内容…（支持空格分隔多个关键词）" autocomplete="off">
+    <span id="searchShortcut" class="search-shortcut">Ctrl+K</span>
+  </div>
+  <div class="topbar-right">
+    <button id="btnFontDown" class="icon-btn" title="减小字号" aria-label="减小字号">A−</button>
+    <button id="btnFontUp" class="icon-btn" title="增大字号" aria-label="增大字号">A+</button>
+    <button id="btnTheme" class="icon-btn" title="切换深色/浅色主题" aria-label="切换主题">🌙</button>
+    <button id="btnPracticeTop" class="icon-btn" title="24 模式速查表" aria-label="模式速查表">📋</button>
+  </div>
+</header>
+
+<!-- 搜索面板 -->
+<div id="searchPanel" class="search-panel hidden">
+  <div id="searchResults" class="search-results"></div>
+  <div id="searchEmpty" class="search-empty hidden">没有找到匹配内容，试试其他关键词</div>
+</div>
+
+<!-- 阅读进度条 -->
+<div id="progressBar" class="progress-bar"></div>
+
+<div class="layout">
+  <!-- 侧边栏：目录 -->
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-head">目录</div>
+    <ul id="tocList" class="toc-list"></ul>
+  </nav>
+  <div id="sidebarMask" class="sidebar-mask"></div>
+
+  <!-- 主内容区 -->
+  <main id="main" class="main">
+    <div id="homeView" class="home-view">
+      <div class="home-card">
+        <h1>《Python 设计模式修炼手册》</h1>
+        <p class="home-desc">用 Python 讲解全部 23 个 GoF 设计模式 + 简单工厂（共 24 个）· 按实际使用率与难易程度排序 · 每章配生活类比、可运行代码与练习题</p>
+        <p class="home-version">代码基准：Python 3.8+（全部示例在 Python 3.12 实测通过，只用标准库）</p>
+        <div class="home-actions">
+          <button id="btnStart" class="btn-primary">📖 开始阅读（第 1 章）</button>
+          <button id="btnPractice" class="btn-secondary">📋 24 模式速查表</button>
+          <button id="btnSearch" class="btn-secondary">🔍 搜索全书</button>
+        </div>
+        <div class="home-features">
+          <span>✓ 全文搜索（Ctrl+K）</span><span>✓ 目录导航</span><span>✓ 代码高亮与一键复制</span><span>✓ 深浅主题</span><span>✓ 字号调节</span><span>✓ 阅读进度</span>
+        </div>
+      </div>
+      <div id="homeToc" class="home-toc"></div>
+    </div>
+    <article id="articleView" class="article-view hidden">
+      <div id="articleContent" class="article-content markdown-body"></div>
+      <div class="article-nav">
+        <button id="btnPrev" class="nav-btn">← 上一章</button>
+        <button id="btnNext" class="nav-btn">下一章 →</button>
+      </div>
+    </article>
+  </main>
+</div>
+
+<button id="btnTop" class="btn-top hidden" title="回到顶部">↑</button>
+
+<!-- 数据（由 build_site.py 生成，file:// 直接打开也能用） -->
+<script src="data/README.js"></script>
+<script src="data/00-导读-设计模式入门.js"></script>
+<script src="data/01-单例模式-Singleton.js"></script>
+<script src="data/02-简单工厂-Simple-Factory.js"></script>
+<script src="data/03-策略模式-Strategy.js"></script>
+<script src="data/04-迭代器模式-Iterator.js"></script>
+<script src="data/05-装饰器模式-Decorator.js"></script>
+<script src="data/06-外观模式-Facade.js"></script>
+<script src="data/07-工厂方法-Factory-Method.js"></script>
+<script src="data/08-模板方法-Template-Method.js"></script>
+<script src="data/09-观察者模式-Observer.js"></script>
+<script src="data/10-适配器模式-Adapter.js"></script>
+<script src="data/11-建造者模式-Builder.js"></script>
+<script src="data/12-代理模式-Proxy.js"></script>
+<script src="data/13-责任链模式-Chain-of-Responsibility.js"></script>
+<script src="data/14-抽象工厂-Abstract-Factory.js"></script>
+<script src="data/15-命令模式-Command.js"></script>
+<script src="data/16-状态模式-State.js"></script>
+<script src="data/17-组合模式-Composite.js"></script>
+<script src="data/18-原型模式-Prototype.js"></script>
+<script src="data/19-中介者模式-Mediator.js"></script>
+<script src="data/20-备忘录模式-Memento.js"></script>
+<script src="data/21-桥接模式-Bridge.js"></script>
+<script src="data/22-访问者模式-Visitor.js"></script>
+<script src="data/23-享元模式-Flyweight.js"></script>
+<script src="data/24-解释器模式-Interpreter.js"></script>
+<script src="data/25-结语-模式不是银弹.js"></script>
+<script src="data/26-附录A-24模式速查表.js"></script>
+
+<script src="js/markdown.js"></script>
+<script src="js/highlight.js"></script>
+<script src="js/search.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

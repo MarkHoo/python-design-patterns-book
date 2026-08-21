@@ -1,0 +1,7 @@
+# 代码验证脚本的临时工作目录
+.verify_tmp/
+verify_tmp2/
+
+# Python
+__pycache__/
+*.pyc
